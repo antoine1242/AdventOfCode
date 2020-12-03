@@ -1,19 +1,12 @@
-import math
+def problem2():
+	with open("input2.txt") as f:
+	    numbers = f.readlines()
+	numbers = [int(x.strip()) for x in numbers]
 
-def get_fuel(mass):
-    return math.floor(mass / 3.) - 2
+	for i in range(0, len(numbers)):
+		for j in range(i, len(numbers)):
+			for k in range(j, len(numbers)):
+				if numbers[i] + numbers[j] + numbers[k] == 2020:
+					return numbers[i] * numbers[j] * numbers[k]
 
-with open("input1.txt") as f:
-    content = f.readlines()
-masses = [int(x.strip()) for x in content]
-
-sum = 0
-
-for mass in masses:
-    fuel = get_fuel(mass)
-
-    while(fuel > 0):
-        sum += fuel
-        fuel = get_fuel(fuel)
-
-print("sum", sum)
+print(problem2())

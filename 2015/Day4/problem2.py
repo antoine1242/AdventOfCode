@@ -1,9 +1,15 @@
-import math
-import copy
+import hashlib 
 
 def main():
-    with open("input.txt") as f:
-        entries = f.readlines()
+    puzzle_input = "ckczppom"
 
+    i = 0
+
+    while True:
+        if hashlib.md5((puzzle_input + str(i)).encode()).hexdigest()[:6] == "000000":
+            print(i)
+            return i
+        
+        i += 1
 
 main()

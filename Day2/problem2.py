@@ -1,47 +1,20 @@
-import math
-import copy
+def problem2():
+	with open("input2.txt") as f:
+	    password_rules = f.readlines()
+	password_rules = [x.strip() for x in password_rules]
 
-def try_pair(initial_opcodes, i, j):
-    opcodes = copy.deepcopy(initial_opcodes)
-    opcodes[1] = i
-    opcodes[2] = j
-    output = get_output(opcodes)
+	valid_count = 0
 
-    if output == 19690720:
-        return (i,j)
-    else:
-        return (100,100)
+	for password_rule in password_rules:
+		rule = password_rule.split(' ')
 
-def get_output(opcodes):
-    i = 0
-    while i < len(opcodes):
-        if opcodes[i] == 1:
-            opcodes[opcodes[i+3]] = opcodes[opcodes[i+1]] + opcodes[opcodes[i+2]]
+		letter_position = rule[0].split('-')
+		letter = rule[1][0]
+		password = rule[2]
 
-        elif opcodes[i] == 2:
-            opcodes[opcodes[i+3]] = opcodes[opcodes[i+1]] * opcodes[opcodes[i+2]]
+		if (password[int(letter_position[0]) - 1] == letter) != (password[int(letter_position[1]) - 1] == letter):
+			valid_count += 1
 
-        elif opcodes[i] == 99:
-            break
+	return valid_count
 
-        else:
-            return 0
-
-        i += 4
-
-    return opcodes[0]
-
-with open("input1.txt") as f:
-    content = f.readline()
-opcodes = content.split(",")
-initial_opcodes = list(map(int, opcodes))
-
-for i in range(100):
-    for j in range(100):
-        result = try_pair(initial_opcodes, i, j)
-        if result[0] != 100:
-            break
-    if result[0] != 100:
-        break
-print(result)
-print(100*result[0] + result[1])
+print(problem2())
