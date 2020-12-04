@@ -13,7 +13,7 @@ def count_trees(trees, d_x, d_y):
 
 	return hits
 
-def problem1():
+def problem2():
 	with open("input2.txt") as f:
 	    trees = f.readlines()
 	trees = [x.strip() for x in trees]
@@ -21,4 +21,4 @@ def problem1():
 	return count_trees(trees, 1, 1) * count_trees(trees, 3, 1) * count_trees(trees, 5, 1) * count_trees(trees, 7, 1) * count_trees(trees, 1, 2)
 	
 
-print(problem1())
+print(problem2())
