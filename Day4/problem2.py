@@ -44,6 +44,8 @@ def check_validity(values):
 			elif entry[1][-2:] == 'in':
 				if int(entry[1][:-2]) < 59 or int(entry[1][:-2]) > 76:
 					return False
+			else:
+				return False
 
 		elif entry[0] == 'hcl':
 			pattern = re.compile("^[a-f0-9]{6,}$")
@@ -57,7 +59,7 @@ def check_validity(values):
 		elif entry[0] == 'pid':
 			if len(entry[1]) != 9 or not entry[1].isnumeric():
 				return False
-
+	print(entry)
 	return True
 
 def problem2():
