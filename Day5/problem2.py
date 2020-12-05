@@ -36,7 +36,8 @@ def problem2():
 
 	list.sort(seats_id)
 
-	for x in range(71, 955):
+	# Suboptimal in time complexity
+	for x in range(min(seats_id), max(seats_id)):
 		if x not in seats_id:
 			return x
 
