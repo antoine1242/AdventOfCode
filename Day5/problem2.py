@@ -1,5 +1,5 @@
 def problem2():
-	with open("input1.txt") as f:
+	with open("input2.txt") as f:
 	    seats = f.readlines()
 	seats = [x.strip() for x in seats]
 
