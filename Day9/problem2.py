@@ -19,7 +19,7 @@ def find_num(lines):
 
 
 def problem2():
-    with open("input1.txt") as f:
+    with open("input2.txt") as f:
         content = f.readlines()
     lines = [int(x.strip()) for x in content]
 
