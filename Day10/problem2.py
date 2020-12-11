@@ -8,20 +8,6 @@ def is_valid(numbers):
 
     return True
 
-def find_valids(numbers, valids, seens, index):
-    for i in range(index, len(numbers)-1):
-        curr_numbers = copy.deepcopy(numbers)
-        curr_numbers.pop(i)
-
-        if tuple(curr_numbers) in seens:
-            return 0
-
-        if is_valid(curr_numbers):
-            valids.add(tuple(curr_numbers))
-            find_valids(curr_numbers, valids, seens, i)
-
-        seens.add(tuple(curr_numbers))
-
 def compute_valids(length):
     valids = 0
 
