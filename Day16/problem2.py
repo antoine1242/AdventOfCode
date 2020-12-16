@@ -19,6 +19,7 @@ def problem2():
         range_2 = list(range(int(range_2[0]), int(range_2[1]) + 1))
 
         curr_range = range_1 + range_2
+
         field_ranges.append(curr_range)
 
         i += 1
@@ -46,6 +47,8 @@ def problem2():
     fields_valid_positions = []
 
     for field_range in field_ranges:
+        if field_range[0] == 30:
+            print("")
         invalid_positions = set()
 
         for ticket in valid_tickets:
@@ -56,9 +59,11 @@ def problem2():
         valid_positions = set(list(range(len(my_ticket))))
         fields_valid_positions.append(valid_positions-invalid_positions)
 
-    print(range(len(my_ticket)))
     order = list(range(len(my_ticket)))
     filled = set()
+
+    for field in fields_valid_positions:
+        print(field)
 
     for i in range(1, len(my_ticket) + 1):
         for index, field in enumerate(fields_valid_positions):
@@ -67,21 +72,15 @@ def problem2():
                 new_field2 = field-filled
                 order[index] = new_field.pop()
                 filled.add(new_field2.pop())
-    print(fields_valid_positions)
-    print(order)
+                break
 
     answer = 1
 
     for i in range(6):
-        for j in range(len(order)):
-            if order[j] == i:
-                answer *= my_ticket[j]
-                break
+        answer *= my_ticket[order[i]]
 
     return answer
 
 print(problem2())
 
-# 780167606843 too high
-# 574755500971 too high
-# 302834574541 (make sure you are using the full input data)
+# 366871907221
