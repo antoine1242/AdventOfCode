@@ -1,5 +1,5 @@
-def problem1():
-    with open("input1.txt") as f:
+def problem2():
+    with open("input2.txt") as f:
         content = f.readlines()
     lines = [x.strip() for x in content]
 
@@ -56,16 +56,18 @@ def problem1():
         valid_positions = set(list(range(len(my_ticket))))
         fields_valid_positions.append(valid_positions-invalid_positions)
 
-    order = []
+    print(range(len(my_ticket)))
+    order = list(range(len(my_ticket)))
     filled = set()
 
-    for i in range(len(my_ticket)):
+    for i in range(1, len(my_ticket) + 1):
         for index, field in enumerate(fields_valid_positions):
             if len(field) == i:
                 new_field = field-filled
-                order.append(index)
-                filled.add(new_field.pop())
-
+                new_field2 = field-filled
+                order[index] = new_field.pop()
+                filled.add(new_field2.pop())
+    print(fields_valid_positions)
     print(order)
 
     answer = 1
@@ -74,12 +76,12 @@ def problem1():
         for j in range(len(order)):
             if order[j] == i:
                 answer *= my_ticket[j]
-    print(answer)
-    exit()
+                break
 
-    return 0
+    return answer
 
-print(problem1())
+print(problem2())
 
 # 780167606843 too high
 # 574755500971 too high
+# 302834574541 (make sure you are using the full input data)

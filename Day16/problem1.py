@@ -29,7 +29,8 @@ def problem1():
         i += 1
 
     valid_tickets = []
-
+    error_rate = 0
+    print(lines[i+1])
     for j in range(i+2, len(lines)):
         is_valid = True
 
@@ -38,53 +39,12 @@ def problem1():
         for number in numbers:
             if number not in valid_range:
                 is_valid = False
+                error_rate += number
                 break
 
         if is_valid:
             valid_tickets.append(numbers)
 
-    departure_fields_range = []
-
-    departure_location_range = lines[0].split(": ")[1].split(" or ")
-    departure_fields_range.append(departure_location_range)
-    departure_station_range = lines[1].split(": ")[1].split(" or ")
-    departure_fields_range.append(departure_station_range)
-    departure_platform_range = lines[2].split(": ")[1].split(" or ")
-    departure_fields_range.append(departure_platform_range)
-    departure_track_range = lines[3].split(": ")[1].split(" or ")
-    departure_fields_range.append(departure_track_range)
-    departure_date_range = lines[4].split(": ")[1].split(" or ")
-    departure_fields_range.append(departure_date_range)
-    departure_time_range = lines[5].split(": ")[1].split(" or ")
-    departure_fields_range.append(departure_time_range)
-
-    answer = 1
-
-    for departure_range in departure_fields_range:
-        departure_range_1 = departure_range[0].split("-")
-        departure_range_1 = list(range(int(departure_range_1[0]), int(departure_range_1[1])+1))
-
-        departure_range_2 = departure_range[1].split("-")
-        departure_range_2 = list(range(int(departure_range_2[0]), int(departure_range_2[1]) + 1))
-
-        combined_range = departure_range_1 + departure_range_2
-
-        valid_position = sum(list(range(len(my_ticket))))
-        invalid_positions = set()
-
-        for ticket in valid_tickets:
-            for index, value in enumerate(ticket):
-                if value not in combined_range:
-                    print(ticket)
-                    print(value)
-                    invalid_positions.add(index)
-        print(combined_range)
-        print(invalid_positions)
-        print(valid_position)
-        valid_position = valid_position - sum(invalid_positions)
-        print(valid_position)
-        exit()
-
-    return 0
+    return error_rate
 
 print(problem1())
