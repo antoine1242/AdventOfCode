@@ -3,26 +3,13 @@ import copy
 
 def main():
     with open("input.txt") as f:
-        entries = f.readlines()
+        groups = f.read().split("\n\n")
 
-    numbers = [x.strip() for x in entries]
+    calories_per_elf = [sum([int(value) for value in array]) for array in [group.split("\n") for group in groups]]
+    calories_per_elf.sort()
+    calories_per_elf.reverse()
+    
+    top_1 = calories_per_elf[0]
+    print(top_1)
 
-    max_global = 0
-
-    curr_counter = 0
-
-    for n in numbers:
-        if len(n) == 0:
-            if curr_counter > max_global:
-                max_global = curr_counter
-            curr_counter = 0
-        else:
-            curr_counter += int(n)
-        
-    if curr_counter > max_global:
-        max_global = curr_counter
-
-    print(max_global)
 main()
-
-#720660
