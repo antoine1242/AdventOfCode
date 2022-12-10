@@ -2,7 +2,7 @@ import math
 import copy
 
 def main():
-    with open("input.txt") as f:
+    with open("Day5/input.txt") as f:
         lines = f.read().split("\n\n")
 
     cargos = lines[0].split("\n")

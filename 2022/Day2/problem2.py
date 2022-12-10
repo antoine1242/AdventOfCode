@@ -2,7 +2,7 @@ import math
 import copy
 
 def main():
-    with open("input.txt") as f:
+    with open("Day2/input.txt") as f:
         entries = f.read().split("\n")
 
     choice = {"A": {"X": "Z", "Y": "X", "Z": "Y"}, "B": {"X": "X", "Y": "Y", "Z": "Z"}, "C": {"X": "Y", "Y": "Z", "Z": "X"}}

@@ -2,7 +2,7 @@ import math
 import copy
 
 def main():
-    with open("input.txt") as f:
+    with open("Day6/input.txt") as f:
         line = f.read()
     
     chars = []

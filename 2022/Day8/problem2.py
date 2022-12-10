@@ -58,7 +58,7 @@ def calculate_scenic_score_bot(grid, i, j):
     return score
 
 def main():
-    with open("input.txt") as f:
+    with open("Day8/input.txt") as f:
         lines = f.read().split("\n")
 
     highest_score = 0

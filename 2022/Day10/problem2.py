@@ -11,7 +11,7 @@ def draw_pixel(grid, cycle, register):
         grid[curr_i][curr_j] = "." 
 
 def main():
-    with open("input.txt") as f:
+    with open("Day10/input.txt") as f:
         lines = f.read().split("\n")
 
     grid = [["X" for i in range(40)] for j in range(6)]

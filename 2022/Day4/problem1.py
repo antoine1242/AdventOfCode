@@ -2,7 +2,7 @@ import math
 import copy
 
 def main():
-    with open("input.txt") as f:
+    with open("Day4/input.txt") as f:
         lines = f.read().split("\n")
 
     total = 0

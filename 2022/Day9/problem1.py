@@ -5,7 +5,7 @@ def touching(head, tail):
     return abs(head[0] - tail[0]) <= 1 and abs(head[1] - tail[1]) <= 1 
 
 def main():
-    with open("input.txt") as f:
+    with open("Day9/input.txt") as f:
         moves = f.read().split("\n")
 
     print(moves)

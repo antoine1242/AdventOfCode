@@ -58,7 +58,7 @@ def move_knot(number, knots):
         return "no"
 
 def main():
-    with open("input.txt") as f:
+    with open("Day9/input.txt") as f:
         moves = f.read().split("\n")
 
     knots = [[0, 0] for x in range(10)]

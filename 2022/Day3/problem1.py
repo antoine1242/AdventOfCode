@@ -2,7 +2,7 @@ import math
 import copy
 
 def main():
-    with open("input.txt") as f:
+    with open("Day3/input.txt") as f:
         # entries = f.read().split("\n\n")
         entries = f.read().split("\n")
 
