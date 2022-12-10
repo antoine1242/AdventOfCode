@@ -3,7 +3,8 @@ import copy
 
 def main():
     with open("input.txt") as f:
-        entries = f.readlines()
+        lines = f.read().split("\n")
 
-
+    print(lines)
+    
 main()
