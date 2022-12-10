@@ -2,8 +2,8 @@ import math
 import copy
 
 def draw_pixel(grid, cycle, register):
-    curr_i = (cycle // 40)  # Pas sûr
-    curr_j = (cycle % 40) - 1 # Pas sûr
+    curr_i = ((cycle - 1) // 40)  # Pas sûr
+    curr_j = ((cycle - 1) % 40)  # Pas sûr
 
     if abs(curr_j - register) <= 1:
         grid[curr_i][curr_j] = "#"
@@ -14,7 +14,7 @@ def main():
     with open("input.txt") as f:
         lines = f.read().split("\n")
 
-    grid = [["X" for i in range(40)] for j in range(7)]
+    grid = [["X" for i in range(40)] for j in range(6)]
 
     register = 1
     cycle = 0

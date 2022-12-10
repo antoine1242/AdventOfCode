@@ -6,7 +6,6 @@ def main():
         lines = f.read().split("\n")
 
     total = 0
-
     register = 1
     cycle = 0
 
@@ -24,8 +23,6 @@ def main():
                 total += register * cycle
 
         else:
-            
-
             cycle += 1
             if cycle in check:
                 total += register * cycle
@@ -35,7 +32,6 @@ def main():
                 total += register * cycle
 
             register += num
-
 
     print(total)
     
