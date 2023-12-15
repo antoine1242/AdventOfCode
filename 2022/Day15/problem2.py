@@ -38,7 +38,6 @@ def main():
     ranges = [[] for i in range(MAX_Y+1)]
 
     for index, sensor in enumerate(sensors):
-        print("Sensor:", sensor)
         for i in range(sensor[0] - distances[index], sensor[0] + distances[index] + 1):
             if i >= 0 and i <= MAX_Y: 
                 if i <= sensor[0]:
@@ -55,53 +54,4 @@ def main():
         if len(new_ranges[i]) > 1:
             return (new_ranges[i][0][1] + 1) * 4000000 + i
 
-print(main())
-
-
-    # for i in range(1, MAX_Y + 1):
-    #     print(i)
-    #     for j in range(MAX_Y + 1):
-    #         distress = True
-    #         for k in range(len(sensors)):
-    #             if manhattan([i,j], sensors[k]) <= distances[k]:
-    #                 distress = False
-    #                 break
-    #         if distress:
-    #             for k in range(len(beacons)):
-    #                 if beacons[k][0] == i and beacons[k][1] == j:
-    #                     distress = False
-    #                     break
-    #         if distress:
-    #             return 4000000 * j + i
-
-    # for y in range(MAX_Y + 1):
-    #     if y % 1000 == 0:
-    #         print(y)
-
-    #     impossible_coordinates = set()
-
-    #     for i in range(len(sensors)):
-    #         # When Y is under
-    #         if y >= sensors[i][0]:
-    #             diff = sensors[i][0] + distances[i] - y
-    #             if diff >= 0:
-    #                 for j in range(sensors[i][1] - diff, sensors[i][1] + diff + 1):
-    #                     if (j != beacons[i][1] or beacons[i][0] != y) and j >= 0 and j <= MAX_Y:
-    #                         impossible_coordinates.add(j)
-
-    #         # When Y is above
-    #         else:
-    #             diff = y - sensors[i][0] + distances[i]
-    #             if diff >= 0:
-    #                 for j in range(sensors[i][1] - diff, sensors[i][1] + diff + 1):
-    #                     if (j != beacons[i][1] or beacons[i][0] != y) and j >= 0 and j <= MAX_Y:
-    #                         impossible_coordinates.add(j)
-        
-    #     for beacon in beacons:
-    #         if beacon[0] == y and beacon[1] >= 0 and beacon[1] <= MAX_Y:
-    #             impossible_coordinates.add(beacon[1])
-
-    #     if len(impossible_coordinates) < MAX_Y + 1:
-    #         for coord in range(MAX_Y + 1):
-    #             if coord not in impossible_coordinates:
-    #                 return coord * 4000000 + y 
+print(main()) # 10553942650264
